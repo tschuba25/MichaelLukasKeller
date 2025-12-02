@@ -1,12 +1,9 @@
 # basic information
-name: khang nguyen
+name: Michael Keller
 profile-pic: assets/img/new_pic.jpg
-pronunciation: /kʰæŋ/
-pronunciation-emoji: 🎧
 
-# emoji indicator
-emoji: 🍀
-desc-emoji: four-leaf clover
+
+
 
 # social links
 scholar: https://scholar.google.com/citations?user=Z6_5ZTEAAAAJ
@@ -21,8 +18,6 @@ orcid: https://orcid.org/0000-0003-3471-5533
 contact: show            # delete "show" or leave it blank to hide this icon
 
 # information for contact card
-dept: cse @ uta
-lab: learn lab @ erb 128
 email: khang.nguyen@uta.edu
 phone: +1 (470) 815-5812
 website: https://mkhangg.com/
