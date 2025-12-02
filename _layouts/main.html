@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <!-- Metadata -->
@@ -9,25 +10,21 @@
     <title>{{ site.title }} | {{ site.info }}</title>
     <link rel="icon" type="image/x-icon" href="{{ site.icon-pic }}" />
 
-    <!-- Font Awesome (v4) REQUIRED for classes like: fa fa-graduation-cap -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-
-    <!-- Font Awesome (v5) for classes like: fab fa-github / fas fa-file-alt -->
+    <!-- Font Awesome icons (keep BOTH: v5 + v4 for compatibility) -->
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
 
-    <!-- CSS -->
+    <!-- Google fonts / CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
 
-    <!-- Core theme CSS (use relative_url for GitHub Pages compatibility) -->
-    <link href="{{ '/styles/styles.css' | relative_url }}" rel="stylesheet" />
+    <!-- Core theme CSS -->
+    <link href="styles/styles.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -45,10 +42,12 @@
     <!-- Toggle dark/light theme button -->
     <button class="toggle-theme-button" onclick="toggleTheme()">☀️</button>
 
-    <!-- Navigation bar (sidebar / slidebar) -->
+    <!-- Navigation bar (ADAPTED) -->
     <nav>
       <a class="nav-toggle-btn" onclick="toggleNav()">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </a>
 
       <ul>
@@ -57,18 +56,21 @@
             <span class="emoji">🏡</span> <span class="text">home</span>
           </p>
         </li>
+
         <li>
           <p onclick="scrollToTopDiv('#projects')">
             <span class="emoji">🧪</span> <span class="text">projects</span>
           </p>
         </li>
+
         <li>
           <p onclick="scrollToTopDiv('#blog')">
             <span class="emoji">✍️</span> <span class="text">blog</span>
           </p>
         </li>
+
         <li>
-          <p onclick="scrollToTopDiv('#free-time')">
+          <p onclick="scrollToTopDiv('#free_time')">
             <span class="emoji">🚴</span> <span class="text">free time</span>
           </p>
         </li>
@@ -80,7 +82,7 @@
       {{ content }}
     </div>
 
-    <!-- JS -->
+    <!-- Bootstrap core JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -98,7 +100,7 @@
     <!-- Third party plugin JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
-    <!-- Core theme JS (use relative_url for GitHub Pages compatibility) -->
-    <script src="{{ '/js/scripts.js' | relative_url }}"></script>
+    <!-- Core theme JS -->
+    <script src="js/scripts.js"></script>
   </body>
 </html>
