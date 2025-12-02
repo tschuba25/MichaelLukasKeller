@@ -9,7 +9,13 @@
     <title>{{ site.title }} | {{ site.info }}</title>
     <link rel="icon" type="image/x-icon" href="{{ site.icon-pic }}" />
 
-    <!-- Font Awesome icons (v5) -->
+    <!-- Font Awesome (v4) REQUIRED for classes like: fa fa-graduation-cap -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- Font Awesome (v5) for classes like: fab fa-github / fas fa-file-alt -->
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
 
     <!-- CSS -->
@@ -20,35 +26,56 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
 
-    <!-- Core theme CSS -->
+    <!-- Core theme CSS (use relative_url for GitHub Pages compatibility) -->
     <link href="{{ '/styles/styles.css' | relative_url }}" rel="stylesheet" />
   </head>
 
   <body>
+    <!-- Moving particles -->
     <canvas id="canvas"></canvas>
 
+    <!-- Progress bar on top -->
     <div class="progress-bar-container">
       <div class="progress-bar" id="progressBar"></div>
     </div>
 
+    <!-- Back to top button -->
     <a id="back-to-top-button"></a>
 
+    <!-- Toggle dark/light theme button -->
     <button class="toggle-theme-button" onclick="toggleTheme()">☀️</button>
 
-    <!-- Navigation bar -->
+    <!-- Navigation bar (sidebar / slidebar) -->
     <nav>
       <a class="nav-toggle-btn" onclick="toggleNav()">
         <span></span><span></span><span></span>
       </a>
 
       <ul>
-        <li><p onclick="scrollToTopDiv('html')"><span class="emoji">🏡</span> <span class="text">home</span></p></li>
-        <li><p onclick="scrollToTopDiv('#projects')"><span class="emoji">🧪</span> <span class="text">projects</span></p></li>
-        <li><p onclick="scrollToTopDiv('#blog')"><span class="emoji">✍️</span> <span class="text">blog</span></p></li>
-        <li><p onclick="scrollToTopDiv('#free-time')"><span class="emoji">🚴</span> <span class="text">free time</span></p></li>
+        <li>
+          <p onclick="scrollToTopDiv('html')">
+            <span class="emoji">🏡</span> <span class="text">home</span>
+          </p>
+        </li>
+        <li>
+          <p onclick="scrollToTopDiv('#projects')">
+            <span class="emoji">🧪</span> <span class="text">projects</span>
+          </p>
+        </li>
+        <li>
+          <p onclick="scrollToTopDiv('#blog')">
+            <span class="emoji">✍️</span> <span class="text">blog</span>
+          </p>
+        </li>
+        <li>
+          <p onclick="scrollToTopDiv('#free-time')">
+            <span class="emoji">🚴</span> <span class="text">free time</span>
+          </p>
+        </li>
       </ul>
     </nav>
 
+    <!-- Content -->
     <div class="container" style="padding-top: 3rem;">
       {{ content }}
     </div>
@@ -59,11 +86,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Isotope JS -->
     <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.2/dist/isotope.pkgd.min.js"></script>
+
+    <!-- OwlCarousel2 JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Axios JS -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Third party plugin JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
+    <!-- Core theme JS (use relative_url for GitHub Pages compatibility) -->
     <script src="{{ '/js/scripts.js' | relative_url }}"></script>
   </body>
 </html>
