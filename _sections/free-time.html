@@ -1,0 +1,28 @@
+<!-- Free time section -->
+
+<hr>
+<div class="row" id="free-time">
+  <div class="col">
+    <h2 class="mb-5">🚴 free time</h2>
+    <p></p>
+
+    <!-- Optional filters (edit categories in _data/free_time.yml) -->
+    <div id="filters-free-time">
+      <button class="filter-button active" data-filter="*">all</button>
+      {% for category in site.data.free_time.categories %}
+        <button class="filter-button" data-filter="{{ category.data-filter }}">{{ category.category-name }}</button>
+      {% endfor %}
+    </div>
+
+    <p></p>
+
+    <!-- Items grid (edit items in _data/free_time.yml) -->
+    <div id="free-time-items" class="isotope">
+      {% for item in site.data.free_time.items %}
+        {% include_relative _libs/free_time_widget.html %}
+      {% endfor %}
+    </div>
+
+    <p></p>
+  </div>
+</div>
