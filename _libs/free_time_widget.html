@@ -1,0 +1,22 @@
+{%- assign classes = "" -%}
+{%- for t in item.tags -%}
+  {%- assign classes = classes | append: " " | append: t -%}
+{%- endfor -%}
+
+<div class="project-card{{ classes }}">
+  <div class="project-card-inner">
+    <div class="project-card-header">
+      {% if item.icon %}
+        <i class="{{ item.icon }}" style="font-size: 28px; margin-right: 10px;"></i>
+      {% endif %}
+      <div>
+        <h3 class="project-title">{{ item.title }}</h3>
+        {% if item.subtitle %}<p class="project-subtitle">{{ item.subtitle }}</p>{% endif %}
+      </div>
+    </div>
+
+    {% if item.description %}
+      <p class="project-desc">{{ item.description }}</p>
+    {% endif %}
+  </div>
+</div>
