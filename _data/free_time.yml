@@ -1,0 +1,26 @@
+categories:
+  - category-name: endurance
+    data-filter: ".endurance"
+  - category-name: outdoors
+    data-filter: ".outdoors"
+  - category-name: reading
+    data-filter: ".reading"
+
+items:
+  - title: Triathlon training
+    subtitle: Swim • Bike • Run
+    description: Morning swims, interval rides, and long runs.
+    tags: ["endurance", "outdoors"]
+    icon: "fas fa-person-running"
+
+  - title: Hiking & mountains
+    subtitle: Day trips
+    description: Exploring trails and views.
+    tags: ["outdoors"]
+    icon: "fas fa-mountain"
+
+  - title: Reading
+    subtitle: Neuroscience + sci-fi
+    description: Papers, books, and long-form essays.
+    tags: ["reading"]
+    icon: "fas fa-book"
