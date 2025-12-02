@@ -9,7 +9,7 @@ profile-pic: assets/img/new_pic.jpg
 
 github: https://github.com/mkhangg
 
-contact: show            # delete "show" or leave it blank to hide this icon
+contact:           # delete "show" or leave it blank to hide this icon
 
 # information for contact card
 email: khang.nguyen@uta.edu
