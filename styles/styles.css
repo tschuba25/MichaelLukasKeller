@@ -201,8 +201,6 @@ code {
     padding: 0.25rem 0 0.25rem 0.75rem;
     opacity: 0.85;
     font-size: 89%;
-    /* border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px; */
     transition: 0.5s;
 }
 .light-theme .codebox {
@@ -215,7 +213,11 @@ code {
 }
 
 
-/* Border styles for profile picture */
+/* ===================================================================== */
+/* ======================= RING VERSION (scoped) ======================== */
+/* ===================================================================== */
+/* These are now scoped so they DO NOT affect your new no-ring About HTML */
+
 .ring-container {
     display: flex;
     align-items: center;
@@ -259,7 +261,9 @@ code {
 .dark-theme .hollow-ring {
     background-color: #333333;
 }
-.profile-image {
+
+/* IMPORTANT: scoped to ring-container ONLY */
+.ring-container .profile-image {
     width: 152px;
     height: 152px;
     border-radius: 50%;
@@ -271,16 +275,15 @@ code {
     z-index: 2;
     transition: 0.5s;
 }
-.light-theme .profile-image {
-    border: 5px solid #ffffff
+.light-theme .ring-container .profile-image {
+    border: 5px solid #ffffff;
 }
-.dark-theme .profile-image {
-    border: 5px solid #333333
+.dark-theme .ring-container .profile-image {
+    border: 5px solid #333333;
 }
 
-
-/* Styles for emoji indicator with emoji */
-.emoji-indicator {
+/* IMPORTANT: scoped to ring-container ONLY */
+.ring-container .emoji-indicator {
     font-size: medium;
     width: 43px;
     height: 43px;
@@ -289,28 +292,79 @@ code {
     align-items: center;
     justify-content: center;
     background-color: #efefef;
-    /* position: absolute;
-    bottom: 5px;
-    right: 1px; */
     position: relative;
     top: 112px;
     left: 107px;
-    /* border: 4px solid #ffffff; */
     z-index: 1000;
 }
-.light-theme .emoji-indicator {
-    /* border: 4px solid #ffffff; */
+.light-theme .ring-container .emoji-indicator {
     background-color: #efefef;
 }
-.dark-theme .emoji-indicator {
-    /* border: 4px solid #333333; */
+.dark-theme .ring-container .emoji-indicator {
     background-color: #787878;
 }
+
+
+/* ===================================================================== */
+/* ======================= NO-RING ABOUT (FIX) ========================== */
+/* ===================================================================== */
+/* This is the version you are using now: <div class="profile-image-wrap"> */
+
+.profile-image-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;   /* creates space before icons */
+    width: 100%;
+}
+
+/* This overrides the old behavior by NOT being absolute */
+.profile-image-wrap .profile-image {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+
+    display: block;
+    width: 160px !important;       /* change size here */
+    height: auto !important;
+
+    border-radius: 0 !important;   /* square photo */
+    border: none !important;
+    z-index: 1;
+}
+
+/* Emoji indicator anchored to image corner */
+.profile-image-wrap .emoji-indicator {
+    position: absolute !important;
+    bottom: 6px;
+    right: 6px;
+    top: auto !important;
+    left: auto !important;
+    z-index: 10;
+
+    font-size: medium;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #efefef;
+}
+.light-theme .profile-image-wrap .emoji-indicator {
+    background-color: #efefef;
+}
+.dark-theme .profile-image-wrap .emoji-indicator {
+    background-color: #787878;
+}
+
+/* Emoji hover text behaviors (global, safe) */
 .emoji-indicator .hover-text {
     display: none;
     white-space: nowrap;
     margin-left: 2px;
-    /* margin-right: 4px; */
 }
 .emoji-indicator:hover .hover-text {
     display: inline;
@@ -331,7 +385,7 @@ code {
     justify-content: center;
     height: 3.70rem;
     width: 3.70rem;
-    color: #495057; 
+    color: #495057;
     border-radius: 100%;
     font-size: 1.5rem;
     margin-right: 0.25rem;
@@ -348,6 +402,8 @@ code {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 5; /* ensure icons are never behind the photo */
 }
 
 
@@ -453,7 +509,7 @@ code {
     font-weight: bold;
 }
 .card-website-link {
-    color: #888; 
+    color: #888;
     font-size: 19px;
     font-weight: bold;
 }
@@ -495,16 +551,10 @@ code {
 #filters-project .filter-button.active {
     background-color: rgba(194, 194, 194, 0.45);
 }
-
-
-/* Light theme styles for filter button */
 .light-theme #filters-project .filter-button {
     border: 1px solid #333333;
     color: #333333;
 }
-
-
-/* Dark theme styles for filter button */
 .dark-theme #filters-project .filter-button {
     border: 1px solid #ffffff;
     color: #ffffff;
@@ -534,23 +584,14 @@ code {
 .isotope-pager-project .pager.active {
     background-color: rgba(194, 194, 194, 0.45);
 }
-
-
-/* Light theme styles for pager button */
 .light-theme .isotope-pager-project .pager {
     border: 1px solid #333333;
     color: #333333;
 }
-
-
-/* Dark theme styles for pager button */
 .dark-theme .isotope-pager-project .pager {
     border: 1px solid #ffffff;
     color: #ffffff;
 }
-
-
-/* Disabled stye for pager buttons */
 .isotope-pager-project .pager:disabled {
     background-color: #cccccc;
     color: #666666;
@@ -583,23 +624,14 @@ code {
 .isotope-pager-github .pager.active {
     background-color: rgba(194, 194, 194, 0.45);
 }
-
-
-/* Light theme styles for pager button */
 .light-theme .isotope-pager-github .pager {
     border: 1px solid #333333;
     color: #333333;
 }
-
-
-/* Dark theme styles for pager button */
 .dark-theme .isotope-pager-github .pager {
     border: 1px solid #ffffff;
     color: #ffffff;
 }
-
-
-/* Disabled stye for pager buttons */
 .isotope-pager-github .pager:disabled {
     background-color: #cccccc;
     color: #666666;
@@ -610,8 +642,8 @@ code {
 
 
 /* More/Less button for widgets */
-.collapse.in { 
-    display: inline !important; 
+.collapse.in {
+    display: inline !important;
 }
 
 
@@ -631,16 +663,10 @@ code {
 #filters-resources .filter-button.active {
     background-color: rgba(194, 194, 194, 0.45);
 }
-
-
-/* Light theme styles for filter button */
 .light-theme #filters-resources .filter-button {
     border: 1px solid #333333;
     color: #333333;
 }
-
-
-/* Dark theme styles for filter button */
 .dark-theme #filters-resources .filter-button {
     border: 1px solid #ffffff;
     color: #ffffff;
@@ -674,13 +700,11 @@ div.desc {
     background-color: none;
     width: 100%;
     height: 291px;
-    /* height: 365px; */
     border-radius: 7px;
     margin: 3px;
     border: 1px solid #ccc;
     float: left;
     width: 180px;
-    /* width: 211px; */
     display: flex;
     flex-direction: column;
 }
@@ -702,10 +726,10 @@ div.desc {
     font-size: 60px;
     padding: 20px;
     width: 40px;
-    height: 40px; 
+    height: 40px;
     align-items: center;
     justify-content: center;
-    opacity: 0.5; 
+    opacity: 0.5;
 }
 .owl-carousel .owl-nav .owl-prev {
     left: -30px;
@@ -796,7 +820,6 @@ div.desc {
 .stats-number {
     margin-left: 4px;
     transition: 0.5s;
-    transition: 0.5s;
 }
 .repo-stats {
     display: flex;
@@ -883,27 +906,63 @@ div.desc {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 1000; 
+    z-index: 1000;
     transition: background-color 0.5s ease, color 0.5s ease;
 }
-
-
-/* Light theme styles for toggle theme button */
 .light-theme .toggle-theme-button {
     background-color: #919191;
     color: #ffffff;
 }
-
-
-/* Dark theme styles for toggle theme button */
 .dark-theme .toggle-theme-button {
     background-color: #ccc;
     color: #333333;
 }
 
 
-/* Container for the assistant icon */
-.popup-icon-container {
+/* Progress bar styles */
+.progress-bar-container {
+    width: 100%;
+    height: 1px;
+    background: #f1f1f1;
     position: fixed;
-    left: 10px;
-    bottom
+    top: 0;
+    z-index: 1;
+    transition: 0.5s;
+}
+.progress-bar {
+    height: 1px;
+    background: #bd5d38;
+    width: 0%;
+}
+.light-theme .progress-bar-container {
+    background: #f1f1f1;
+}
+.dark-theme .progress-bar-container {
+    background: #888;
+}
+
+
+/* New style for webpage scrollbar */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Styles for middle-layer moving-particle canvas */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
