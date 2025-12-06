@@ -7,8 +7,10 @@
     <p></p>
 
     <div id="filters-project">
+      <!-- HARD-CODED all button (keep this) -->
       <button class="filter-button active" data-filter="*">all</button>
 
+      <!-- Categories from YAML (do NOT include 'all' in YAML) -->
       {% for category in site.data.research.categories %}
         <button class="filter-button" data-filter=".{{ category['data-filter'] }}">
           {{ category['category-name'] }}
@@ -18,7 +20,7 @@
 
     <p></p>
 
-    <div id="projects" class="isotope">
+    <div id="projects-grid" class="isotope">
       {% for project in site.data.research.projects %}
         {% include_relative _libs/research_widget.html %}
       {% endfor %}
