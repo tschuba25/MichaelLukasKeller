@@ -11,7 +11,6 @@ categories:
   - data-filter: ipscs
     category-name: iPSCs
 
-
 projects:
 
   - title: Volumetric Mapping with Panoptic Refinement via Kernel Density Estimation for Mobile Robots
