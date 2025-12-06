@@ -2,28 +2,30 @@
 
 <hr>
 <div class="row" id="projects">
-  <div class="col">
-    <h2 class="mb-5">📚 projects</h2>
+    <div class="col">
+        <h2 class="mb-5">📚projects</h2>
+        <p></p>
 
-    <div id="filters-project">
-      <button class="filter-button active" data-filter="*">all</button>
+        <div id="filters-project">
+            <!-- Keep the hard-coded all button -->
+            <button class="filter-button active" data-filter="*">all</button>
 
-      {% for category in site.data.research.categories %}
-        <button class="filter-button" data-filter="{{ category['data-filter'] }}">
-          {{ category['category-name'] }}
-        </button>
-      {% endfor %}
+            <!-- NEW: use safe YAML keys: name + filter -->
+            {% for category in site.data.research.categories %}
+                <button class="filter-button" data-filter="{{ category.filter }}">
+                    {{ category.name }}
+                </button>
+            {% endfor %}
+        </div>
+
+        <p></p>
+
+        <div id="projects" class="isotope">
+            {% for project in site.data.research.projects %}
+                {% include_relative _libs/research_widget.html %}
+            {% endfor %}
+        </div>
+
+        <p></p>
     </div>
-
-    <p></p>
-
-    <!-- IMPORTANT: project cards inside here must have a CSS class that matches the filters -->
-    <div id="projects" class="isotope">
-      {% for project in site.data.research.projects %}
-        {% include_relative _libs/research_widget.html %}
-      {% endfor %}
-    </div>
-
-    <p></p>
-  </div>
 </div>
