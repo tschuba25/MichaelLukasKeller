@@ -1,8 +1,6 @@
 /***********************
  * PROJECTS: Isotope + Filters + Pagination
  ***********************/
-
-// Settings
 var itemsPerPageDefault = 5;
 var currentNumberPages = 1;
 var currentPage = 1;
@@ -10,26 +8,21 @@ var currentFilter = '*';
 var pageAtribute = 'data-page-project';
 var pagerClass = 'isotope-pager-project';
 
-// Initialize Isotope correctly
-var $projects = $('#projects').isotope({
+var $projects = $('#projects-grid').isotope({
   itemSelector: '.project',
   layoutMode: 'vertical'
 });
 
-// Filter helper
 function filterCategoryProjects(selector) {
   $projects.isotope({ filter: selector });
 }
 
-// Assign page numbers to filtered items
 function setPaginationProjects() {
-  // Clear previous page attributes
   $projects.children('.project').removeAttr(pageAtribute);
 
-  // Pick only the items in the current filter
   var $filteredItems = (currentFilter === '*')
     ? $projects.children('.project')
-    : $projects.children('.project').filter(currentFilter); // currentFilter like ".adhd"
+    : $projects.children('.project').filter(currentFilter);
 
   var item = 1;
   var page = 1;
@@ -46,22 +39,15 @@ function setPaginationProjects() {
   currentNumberPages = Math.max(page, 1);
 }
 
-// Show page N (and apply current filter)
 function showPageProjects(n) {
   currentPage = n;
 
-  // Always filter by current page attribute
   var selector = '.project[' + pageAtribute + '="' + currentPage + '"]';
-
-  // Add category class filter if not "all"
-  if (currentFilter !== '*') {
-    selector += currentFilter; // e.g. ".machine-learning"
-  }
+  if (currentFilter !== '*') selector += currentFilter;
 
   filterCategoryProjects(selector);
 }
 
-// Build/update pager UI
 function updatePagerProjects() {
   var $pager = ($('.' + pagerClass).length === 0)
     ? $('<div class="' + pagerClass + '"></div>')
@@ -95,35 +81,29 @@ function updatePagerProjects() {
   $indicator.appendTo($pager);
   $next.appendTo($pager);
 
-  // Put pager after the projects grid
   $projects.after($pager);
 }
 
-// Main init
 function initializeIsotopeProjects() {
   setPaginationProjects();
   showPageProjects(1);
   updatePagerProjects();
 
-  // Filter click handler
   $('#filters-project .filter-button').off('click').on('click', function () {
     $('#filters-project .filter-button').removeClass('active');
     $(this).addClass('active');
 
-    // Read filter from button
     currentFilter = $(this).attr('data-filter'); // "*" or ".adhd"
 
-    // Recompute pages and reset to page 1
     setPaginationProjects();
     showPageProjects(1);
     updatePagerProjects();
 
-    // Optional: relayout
     $projects.isotope('layout');
   });
 }
 
-// Keep layout stable when expanding/collapsing abstracts
+// Re-layout when abstracts expand/collapse
 $('.collapse').on('shown.bs.collapse hidden.bs.collapse', function () {
   $projects.isotope('layout');
 });
