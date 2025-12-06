@@ -1,15 +1,15 @@
 categories:
-  - name: machine learning
-    filter: ".machine-learning"
+  - data-filter: machine-learning
+    category-name: machine learning
 
-  - name: adhd
-    filter: ".adhd"
+  - data-filter: adhd
+    category-name: adhd
 
-  - name: mental health
-    filter: ".mental-health"
+  - data-filter: mental-health
+    category-name: mental health
 
-  - name: iPSCs
-    filter: ".ipscs"
+  - data-filter: ipscs
+    category-name: iPSCs
 
 
 projects:
